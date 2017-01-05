@@ -1,8 +1,8 @@
 # Chat App - Node
 
-Chat app using Socket.io
+A realtime chat app using Socket.io
 
-Live version: herokuapp.com
+Live version: https://salty-beach-85290.herokuapp.com/
 
 ## Tech stack
 * Node
