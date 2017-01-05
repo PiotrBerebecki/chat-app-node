@@ -8,6 +8,7 @@ Live version: https://salty-beach-85290.herokuapp.com/
 * Node
 * Socket.io
 * jQuery - DOM manipulation
+* Geolocation API
 
 ## Getting started
 
