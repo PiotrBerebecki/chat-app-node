@@ -7,6 +7,7 @@ Live version: https://salty-beach-85290.herokuapp.com/
 ## Tech stack
 * Node
 * Socket.io
+* jQuery - DOM manipulation
 
 ## Getting started
 

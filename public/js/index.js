@@ -7,22 +7,15 @@ socket.on('connect', function() {
 
 socket.on('newMessage', function(message) {
   console.log('New message', message);
+  const li = jQuery('<li></li>');
+  li.text(`${message.from}: ${message.text}`);
+  
+  jQuery('#messages').append(li);
 });
 
 socket.on('disconnect', function() {
   console.log('Client has disconnected from server');
 });
-
-// socket.emit('createMessage', {
-//   from: 'Frank',
-//   text: 'Hi'
-// }, function(data) {
-//   console.log('Got it', data);
-// });
-
-
-console.clear();
-
 
 jQuery('#message-form').on('submit', function(e) {
   e.preventDefault();
