@@ -22,9 +22,14 @@ io.on('connection', (socket) => {
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
   
   socket.on('createMessage', (message, callback) => {
-    console.log('createMessage', message);
+    // console.log('createMessage', message);
     io.emit('newMessage', generateMessage(message.from, message.text));
     callback('This is from the server');
+  });
+  
+  socket.on('createLocationMessage', (coords) => {
+    console.log('in server', coords.latitude);
+    io.emit('newMessage', generateMessage('Admin', `${coords.latitude}, ${coords.longitude}`));
   });
   
   socket.on('disconnect', () => {
