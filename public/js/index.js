@@ -17,8 +17,16 @@ socket.on('newMessage', function(message) {
 });
 
 
-socket.on('disconnect', function() {
-  console.log('Client has disconnected from server');
+// render location message
+socket.on('newLocationMessage', function(message) {
+  const li = jQuery('<li></li>');
+  const a = jQuery('<a target="_blank">My current location</a>');
+  
+  li.text(`${message.from}: `);
+  a.attr('href', message.url);
+  
+  li.append(a);
+  jQuery('#messages').append(li);
 });
 
 
@@ -51,4 +59,10 @@ locationButton.on('click', function() {
   }, function() {
     alert('Unable to fetch location');
   });
+});
+
+
+// handle disconnect
+socket.on('disconnect', function() {
+  console.log('Client has disconnected from server');
 });
