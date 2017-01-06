@@ -1,5 +1,26 @@
-// Connect client to server
+// connect client to server
 var socket = io();
+
+
+// scroll automatically if near bottom of page 
+// and new messages appear
+function scrollToBottom() {
+  // selectors
+  const messages = jQuery('#messages');
+  const newMessage = messages.children('li:last-child');
+  const newMessageHeight = newMessage.innerHeight();
+  const lastMessageHeight = newMessage.prev().innerHeight();
+  
+  // heights
+  const clientHeight = messages.prop('clientHeight');
+  const scrollTop = messages.prop('scrollTop');
+  const scrollHeight = messages.prop('scrollHeight');
+    
+  if (scrollTop + clientHeight + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    console.log('Should scroll');
+    messages.scrollTop(scrollHeight);
+  }
+}
 
 
 socket.on('connect', function() {
@@ -19,6 +40,7 @@ socket.on('newMessage', function(message) {
   });
   
   jQuery('#messages').append(html);
+  scrollToBottom();
 });
 
 
@@ -34,6 +56,7 @@ socket.on('newLocationMessage', function(message) {
   });
   
   jQuery('#messages').append(html);
+  scrollToBottom();
 });
 
 
