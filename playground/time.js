@@ -16,3 +16,14 @@ date.subtract(34, 'year');
 // 6:30 pm
 const date1 = moment();
 console.log(date1.format('h:MM a'));
+
+
+// passing argument to moment
+const createdAt = 1000;
+const date2 = moment(createdAt);
+console.log(date2.format()); // 1 second into Jan 1st 1970
+
+
+// use moment to get milliseconds like new Date().getTime()
+const date3 = moment().valueOf();
+console.log(date3);
