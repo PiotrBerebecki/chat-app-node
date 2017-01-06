@@ -10,11 +10,15 @@ socket.on('connect', function() {
 // render new message
 socket.on('newMessage', function(message) {
   const formattedTime = moment(message.createdAt).format('HH:mm');
+
+  const template = jQuery('#message-template').html();
+  const html = Mustache.render(template, {
+    from: message.from,
+    createdAt: formattedTime,
+    text: message.text
+  });
   
-  const li = jQuery('<li></li>');
-  li.text(`${message.from} ${formattedTime} ${message.text}`);
-  
-  jQuery('#messages').append(li);
+  jQuery('#messages').append(html);
 });
 
 
@@ -22,14 +26,14 @@ socket.on('newMessage', function(message) {
 socket.on('newLocationMessage', function(message) {
   const formattedTime = moment(message.createdAt).format('HH:mm');
   
-  const li = jQuery('<li></li>');
-  const a = jQuery('<a target="_blank">My current location</a>');
+  const template = jQuery('#location-message-template').html();
+  const html = Mustache.render(template, {
+    from: message.from,
+    createdAt: formattedTime,
+    url: message.url
+  });
   
-  li.text(`${message.from} ${formattedTime} `);
-  a.attr('href', message.url);
-  
-  li.append(a);
-  jQuery('#messages').append(li);
+  jQuery('#messages').append(html);
 });
 
 

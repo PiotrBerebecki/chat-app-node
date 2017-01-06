@@ -10,7 +10,7 @@ Live version: https://salty-beach-85290.herokuapp.com/
 * jQuery - DOM manipulation
 * Geolocation API
 * Moment - Timestamp formatting (e.g. `5 minutes ago`)
-* Moustache - HTML templating
+* Mustache - HTML templating
 
 ## Getting started
 
