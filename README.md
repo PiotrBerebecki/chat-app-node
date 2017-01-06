@@ -9,6 +9,7 @@ Live version: https://salty-beach-85290.herokuapp.com/
 * Socket.io
 * jQuery - DOM manipulation
 * Geolocation API
+* Moment - Timestamp formatting (e.g. `5 minutes ago`)
 
 ## Getting started
 
