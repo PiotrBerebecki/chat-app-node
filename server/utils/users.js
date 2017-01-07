@@ -15,9 +15,19 @@ class Users {
   }
   
   removeUser(id) {
-    const updatedUsers = this.users.filter(user => user.id !== id);
+    let removedUser;
+    let updatedUsers = [];
+    
+    this.users.forEach(user => {
+      if (user.id === id) {
+        removedUser = user;
+      } else {
+        updatedUsers.push(user);
+      }
+    });
+    
     this.users = updatedUsers;
-    return this.users;
+    return removedUser;
   }
   
   getUser(id) {
@@ -29,19 +39,6 @@ class Users {
       .filter(user => user.room === room)
       .map(user => user.name);
   }
-  
 }
 
-// const list = new Users();
-
-// console.log('start', list.users);
-
-// list.addUser(1, 'Pete', 'React');
-// console.log('addUser', list.users);
-
 module.exports = {Users};
-
-
-
-
-
