@@ -9,7 +9,7 @@ Live version: https://salty-beach-85290.herokuapp.com/
 * Socket.io
 * jQuery - DOM manipulation
 * Geolocation API
-* Moment - Timestamp formatting (e.g. `5 minutes ago`)
+* Moment - Timestamp formatting
 * Mustache - HTML templating
 
 ## Getting started
@@ -22,5 +22,5 @@ npm install
 #1. Start the app
 npm start
 
-#2. Open this url in your browser `http://localhost:3000`
+#2. Open this url in your browser: http://localhost:3000
 ```
