@@ -13,6 +13,23 @@ class Users {
     this.users.push(user);
     return user;
   }
+  
+  removeUser(id) {
+    const updatedUsers = this.users.filter(user => user.id !== id);
+    this.users = updatedUsers;
+    return this.users;
+  }
+  
+  getUser(id) {
+    return this.users.find(user => user.id === id);
+  }
+  
+  getUserList(room) {
+    return this.users
+      .filter(user => user.room === room)
+      .map(user => user.name);
+  }
+  
 }
 
 // const list = new Users();
