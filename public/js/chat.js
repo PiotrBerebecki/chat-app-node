@@ -1,5 +1,7 @@
+/* global io moment Mustache */
+
 // connect client to server
-var socket = io();
+const socket = io();
 
 
 // scroll automatically if near bottom of page 
@@ -22,8 +24,18 @@ function scrollToBottom() {
 }
 
 
+// direct new user to room
 socket.on('connect', function() {
-  console.log('Client has connected to server');
+  const params = jQuery.deparam(window.location.search);
+  
+  socket.emit('join', params, function(err) {
+    if (err) {
+      alert(err);
+      window.location.href = '/';
+    } else {
+      console.log('No error');
+    }
+  });
 });
 
 
