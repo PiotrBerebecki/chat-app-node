@@ -39,6 +39,19 @@ socket.on('connect', function() {
 });
 
 
+// update user list
+socket.on('updateUserList', function(users) {
+  const ol = jQuery('<ol></ol>');
+  
+  users.forEach(function(user) {
+    let liName = jQuery('<li></li>').text(user);
+    ol.append(liName);
+  });
+  
+  jQuery('#users').html(ol);
+});
+
+
 // render new message
 socket.on('newMessage', function(message) {
   const formattedTime = moment(message.createdAt).format('HH:mm');
