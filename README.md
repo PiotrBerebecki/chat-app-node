@@ -21,4 +21,6 @@ npm install
 
 #1. Start the app
 npm start
+
+#2. Open this url in your browser `http://localhost:3000`
 ```
